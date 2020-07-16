@@ -1,0 +1,16 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main {
+  // display: flex;
+  flex-direction: column;
+  background-image: url(./data/bgimg23.jpg);
+  // background-size: 100%;
+  background-repeat: repeat;
+  width: 100vw;
+  height: 100vw;
+}

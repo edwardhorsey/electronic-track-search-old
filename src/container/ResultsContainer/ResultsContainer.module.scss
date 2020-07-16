@@ -1,0 +1,31 @@
+article {
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  section {
+
+    margin: 20px;
+    padding: 20px;
+    border-radius: 2px;
+    background-color: rgba(235, 235, 235, 0.5);
+    width: 95%;
+    @media only screen and (min-width: 800px) {
+      width: 45%;
+    }
+  }
+}
+
+// @media only screen and (max-width: 800px) {
+//   section {
+//     &.info {
+//       width: 95%;
+//     }
+
+//     &.mixes {
+//       width: 95%;
+//     }
+//   }
+// }

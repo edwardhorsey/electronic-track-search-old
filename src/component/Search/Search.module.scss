@@ -1,0 +1,77 @@
+.nav {
+  font-size: 1.2em;
+  @media only screen and (max-width: 600px) {
+    font-size: 0.8em;
+  }
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    padding: 5px;
+  }
+
+  .subtitles {
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: 600px) {
+      flex-direction: row-reverse;
+    }
+
+    h4 {
+      width: 60%;
+      padding: 5px;
+      text-align: center;
+      margin: 0 auto;
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    ol {
+      margin: 0 auto;
+      li {
+        padding: 5px;
+        margin-left: 10px;
+        text-align: left;
+      }
+    }
+  }
+
+  form {
+    input {
+      font-size: 1em;
+      padding: 5px;
+      margin: 5px;
+      &:focus {
+        outline: none;
+      }
+      @media only screen and (max-width: 500px) {
+        width: 80%;
+      }
+    }
+
+    button {
+      font-size: 1em;
+      padding: 5px;
+      margin: 5px;
+      width: 150px;
+      @media only screen and (min-width: 600px) {
+        width: 80%;
+      }
+      @media only screen and (max-width: 500px) {
+        width: 80%;
+      }
+      &:hover {
+        background-color: rgb(223, 223, 223);
+        border: 2px solid grey; 
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      font-size: 0.9em;
+      width: 50%;
+    }
+  }
+}
