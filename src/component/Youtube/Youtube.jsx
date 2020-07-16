@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./Youtube.module.scss";
+// import styles from "./Youtube.module.scss";
 import ReactPlayer from "react-player";
 const Spinner = require('react-spinkit');
 
@@ -17,4 +17,3 @@ class Youtube extends Component {
 }
 
 export default Youtube;
- 

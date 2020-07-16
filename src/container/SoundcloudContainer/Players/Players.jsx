@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "./Players.module.scss";
+// import styles from "./Players.module.scss";
 import SoundcloudPlayer from "./SoundcloudPlayer";
-import { getRequests, uniqueByUrl } from "../../../data/api-calls"
+import { uniqueByUrl } from "../../../data/api-calls"
 
 
 class PLayers extends Component {
