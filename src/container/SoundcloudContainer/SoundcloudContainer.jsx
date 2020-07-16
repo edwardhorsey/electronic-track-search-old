@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./SoundcloudContainer.module.scss";
-import { getRequests, uniqueByUrl } from "../../data/api-calls"
-import { scLinks } from "../../data/import-data"
+import { getRequests } from "../../data/api-calls"
+// import { scLinks } from "../../data/import-data"
 import Players from "./Players";
 
 class SoundcloudContainer extends Component {

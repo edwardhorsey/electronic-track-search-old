@@ -3,7 +3,6 @@ import styles from './App.module.scss';
 import Search from './component/Search';
 import ResultsContainer from './container/ResultsContainer';
 import { urlDiscogs, urlMixesDB, urlYoutube } from './data/api-calls';
-import { mixesDbDataFile, discogsDataFile } from './data/import-data';
 
 class App extends Component {
 
@@ -65,7 +64,7 @@ showResults = () => this.state.discogs ? <ResultsContainer discogs={this.discogs
   render() {
     
     return (
-      <main>
+      <main className={styles.main}>
         <Search handleChange={this.handleChange} searchFunc={this.search} />
         {this.showResults()}
       </main>
