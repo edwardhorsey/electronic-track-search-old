@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './App.module.scss';
 import Search from './component/Search';
 import ResultsContainer from './container/ResultsContainer';
-import { scLinks } from './data/import-data';
 
 class App extends Component {
 
