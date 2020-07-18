@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-// import styles from "./Players.module.scss";
 import SoundcloudPlayer from "./SoundcloudPlayer";
-import { uniqueByUrl } from "../../../data/api-calls"
 
 
 class PLayers extends Component {
@@ -9,7 +7,7 @@ class PLayers extends Component {
   render() {
 
     console.log(this.props)
-    const players = uniqueByUrl(this.props.playersArray).map(linkObj => <SoundcloudPlayer player={linkObj} />)
+    const players = this.props.data.map((linkObj, index) => <SoundcloudPlayer key={index} player={linkObj} />)
 
     return (
       <>

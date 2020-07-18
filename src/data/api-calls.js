@@ -23,3 +23,4 @@ const uniqByProp_map = prop => arr =>
   );
 
 export const uniqueByUrl = uniqByProp_map('url');
+export const uniqueByResults = uniqByProp_map('results');

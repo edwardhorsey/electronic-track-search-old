@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './App.module.scss';
 import Search from './component/Search';
 import ResultsContainer from './container/ResultsContainer';
-import { urlDiscogs, urlMixesDB, urlYoutube } from './data/api-calls';
+import { scLinks } from './data/import-data';
 
 class App extends Component {
 
@@ -12,13 +12,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://electronic-search-api-keys.herokuapp.com/mykeys')
-      .then(data => data.json())
-      .then(jsonData => this.setState({keys:jsonData.results}))
-      .catch(error => console.log(error))
+    // fetch('https://electronic-search-api-keys.herokuapp.com/mykeys')
+    //   .then(data => data.json())
+    //   .then(jsonData => this.setState({keys:jsonData.results}))
+    //   .catch(error => console.log(error))
   }
 
   handleChange = (event, state) => this.setState({[state]: event.target.value})
+
+  // mixesDbTitles = data => data.map(el => el.link.slice(el.link.indexOf('/w/')+16).replace(/_/g, ' '));
 
   get searchTerm() {
     return this.state.searchArtist + ' ' + this.state.searchTrack;
@@ -28,41 +30,43 @@ class App extends Component {
     event.preventDefault();
     console.log('searching')
 
-    fetch(urlDiscogs(this.searchTerm, this.state.keys.keyDiscogs))
+    fetch(`https://electronic-search-api-keys.herokuapp.com/discogsyoutubemixesdb?q=${this.searchTerm}`)
     .then(data => data.json())
-    .then(jsonData => { this.setState({ discogs: jsonData.results[0]}) })
-    .catch(error => console.log(error)); 
-      
-    fetch(urlYoutube(this.searchTerm, this.state.keys.keyGoogleYoutube))
-    .then((data) => data.json())
-    .then(jsonData => { this.setState({ youtube: jsonData.items[0].id.videoId}) })
-    .catch(error => console.log(error));
-
-    fetch(urlMixesDB(this.searchTerm, this.state.keys.keyGoogleMixesDb))
-    .then((data) => data.json())
-    .then(jsonData => { this.setState({ mixesdb: jsonData.items}) })
+    .then(jsonData => {
+      this.setState({
+        discogs: jsonData.discogs,
+        youtube: jsonData.youtube,
+        mixesdb: jsonData.mixesdb,
+      })
+      fetch(`https://electronic-search-api-keys.herokuapp.com/soundcloudsearches?q=` + JSON.stringify(jsonData.mixesdb))
+        .then(data => data.json())
+        .then(jsonData => this.setState({
+          soundcloud: jsonData.soundcloud,
+        }))
+        .catch(error => console.log(error))
+    })
     .catch(error => console.log(error));
   }
 
 
   get discogsData() {
-    return this.state.discogs;
+    return this.state.discogs
   }
 
   get youtubeData() {
-    return this.state.youtube;
+    return this.state.youtube
   }
 
-  get mixesDbData() {
-    return this.state.mixesdb;
+  get soundcloudData() {
+    return this.state.soundcloud ? this.state.soundcloud : scLinks;
   }
 
-showSpinners = () => ['discogs', 'youtube'].forEach(state => this.setState({[state]: 'spinner'})); 
+showSpinners = () => ['discogs', 'youtube', 'soundcloud'].forEach(state => this.setState({[state]: 'spinner'})); 
 
-showResults = () => this.state.discogs ? <ResultsContainer discogs={this.discogsData} youtube={this.youtubeData} mixesdb={this.mixesDbData} keys={this.state.keys.keyGoogleSoundcloudKeys} /> : '';
+showResults = () => this.state.discogs ? <ResultsContainer discogs={this.discogsData} youtube={this.youtubeData} soundcloud={this.soundcloudData} /> : '';
 
   render() {
-    
+    console.log(this.state)
     return (
       <main className={styles.main}>
         <Search handleChange={this.handleChange} searchFunc={this.search} />

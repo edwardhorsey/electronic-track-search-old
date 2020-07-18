@@ -4,10 +4,6 @@ import ReactPlayer from "react-player";
 
 class SoundcloudPlayer extends Component {
 
-  state = {
-    playersArray: [],
-  }
-
   render() {
 
     return (
