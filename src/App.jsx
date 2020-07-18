@@ -11,16 +11,7 @@ class App extends Component {
     searchTrack: '',
   }
 
-  componentDidMount() {
-    // fetch('https://electronic-search-api-keys.herokuapp.com/mykeys')
-    //   .then(data => data.json())
-    //   .then(jsonData => this.setState({keys:jsonData.results}))
-    //   .catch(error => console.log(error))
-  }
-
   handleChange = (event, state) => this.setState({[state]: event.target.value})
-
-  // mixesDbTitles = data => data.map(el => el.link.slice(el.link.indexOf('/w/')+16).replace(/_/g, ' '));
 
   get searchTerm() {
     return this.state.searchArtist + ' ' + this.state.searchTrack;
@@ -50,15 +41,15 @@ class App extends Component {
 
 
   get discogsData() {
-    return this.state.discogs
+    return this.state.discogs;
   }
 
   get youtubeData() {
-    return this.state.youtube
+    return this.state.youtube;
   }
 
   get soundcloudData() {
-    return this.state.soundcloud ? this.state.soundcloud : scLinks;
+    return this.state.soundcloud;
   }
 
 showSpinners = () => ['discogs', 'youtube', 'soundcloud'].forEach(state => this.setState({[state]: 'spinner'})); 
@@ -66,7 +57,9 @@ showSpinners = () => ['discogs', 'youtube', 'soundcloud'].forEach(state => this.
 showResults = () => this.state.discogs ? <ResultsContainer discogs={this.discogsData} youtube={this.youtubeData} soundcloud={this.soundcloudData} /> : '';
 
   render() {
-    console.log(this.state)
+    
+    console.log(this.state.discogs, this.state.youtube, this.state.soundcloud)
+
     return (
       <main className={styles.main}>
         <Search handleChange={this.handleChange} searchFunc={this.search} />

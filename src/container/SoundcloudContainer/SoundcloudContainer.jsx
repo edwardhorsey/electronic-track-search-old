@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styles from "./SoundcloudContainer.module.scss";
-
-import { uniqueByUrl } from "../../data/api-calls"
 import Players from "./Players";
+
+import { uniqueByUrl } from "../../data/clean-data"
+import { scLinks } from "../../data/import-data"
 
 class SoundcloudContainer extends Component {
 
@@ -14,8 +15,9 @@ class SoundcloudContainer extends Component {
 
   render() {
 
-    console.log(this.props)
-    const players = this.cleanData(this.props.data)
+    const cleanedData = this.cleanData(this.props.data);
+    const players = cleanedData.length < 1 ? scLinks : cleanedData;
+
     return (
       <div className={styles.soundcloud}>
       <h3>Mixes</h3>
