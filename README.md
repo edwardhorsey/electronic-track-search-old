@@ -10,6 +10,7 @@ My favourite searches for this engine:
 - Blue Hour - Common Ground
 - Oscar Mulero - Generator
 - Polar Inertia - Vertical Ice
+- Steve Bicknell - Harmonious balance
 
 Recent additions:
 - Migrated the Fetch functionality into a backend NodeJS app (hosted on Heroku), which holds my API keys.
