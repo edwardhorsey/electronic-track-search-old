@@ -13,8 +13,8 @@ class Search extends Component {
         <div className={styles.subtitles}>
           <ol> 
             <li>Search for an electronic track</li>  
-            <li>Recieve release info</li>  
-            <li>Recieve mixes featuring the track</li>  
+            <li>Receive release info</li>  
+            <li>Receive mixes featuring the track</li>  
           </ol>
           <h4>Search for a recent track and recieve results of its release and which mixes it's played in.</h4>
           <form>

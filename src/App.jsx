@@ -19,6 +19,7 @@ class App extends Component {
   search = (event) => {
     event.preventDefault();
     console.log('searching')
+    this.showSpinners();
 
     fetch(`https://electronic-search-api-keys.herokuapp.com/discogsyoutubemixesdb?q=${this.searchTerm}`)
     .then(data => data.json())
