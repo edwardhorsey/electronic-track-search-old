@@ -8,14 +8,14 @@ import { scLinks } from "../../data/import-data"
 class SoundcloudContainer extends Component {
 
   cleanData = arr => {
+    console.log(arr)
     let filteredarr = arr.filter(el => el.url)
     let uniq = uniqueByUrl(filteredarr)
     return uniq
   }
 
   render() {
-
-    const cleanedData = this.cleanData(this.props.data);
+    const cleanedData = this.props.data ? this.cleanData(this.props.data) : [];
     const players = cleanedData.length < 1 ? scLinks : cleanedData;
 
     return (
