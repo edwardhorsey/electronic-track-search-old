@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./Discogs.module.scss";
-// import { Pulseloader } from "halogenium";
 var Spinner = require('react-spinkit');
 
 class Discogs extends Component {

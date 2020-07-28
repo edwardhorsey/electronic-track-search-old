@@ -3,10 +3,7 @@ import styles from "./Search.module.scss";
 
 class Search extends Component {
 
-
-
   render() {
-    console.log(this.props)
     return (
       <nav className={styles.nav}>
         <h1>Track and DJ mix results</h1>

@@ -6,9 +6,6 @@ import SoundcloudContainer from "../../container/SoundcloudContainer";
 var Spinner = require('react-spinkit');
 
 class ResultsContainer extends Component {
-
-  // mixesDbTitles = data => data.map(el => el.link.slice(el.link.indexOf('/w/')+16).replace(/_/g, ' '));
-  // sendToSoundcloud = () => <SoundcloudContainer data={this.mixesDbTitles(this.props.mixesdb)} />;
   
   render() {
 

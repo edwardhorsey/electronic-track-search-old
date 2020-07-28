@@ -21,7 +21,7 @@ class App extends Component {
     console.log('searching')
     this.showSpinners();
 
-    fetch(`https://electronic-search-api-keys.herokuapp.com/discogsyoutubemixesdb?q=${this.searchTerm}`)
+    fetch(`https://electronic-track-search-api.herokuapp.com/api/call/stageone/${this.searchTerm}`)
     .then(data => data.json())
     .then(jsonData => {
       this.setState({
@@ -29,7 +29,7 @@ class App extends Component {
         youtube: jsonData.youtube,
         mixesdb: jsonData.mixesdb,
       })
-      fetch(`https://electronic-search-api-keys.herokuapp.com/soundcloudsearches?q=` + JSON.stringify(jsonData.mixesdb))
+      fetch('https://electronic-track-search-api.herokuapp.com/api/call/stagetwo/' + JSON.stringify(jsonData.mixesdb))
         .then(data => data.json())
         .then(jsonData => this.setState({
           soundcloud: jsonData.soundcloud,
@@ -57,8 +57,6 @@ showSpinners = () => ['discogs', 'youtube', 'soundcloud'].forEach(state => this.
 showResults = () => this.state.discogs ? <ResultsContainer discogs={this.discogsData} youtube={this.youtubeData} soundcloud={this.soundcloudData} /> : '';
 
   render() {
-    
-    console.log(this.state.discogs, this.state.youtube, this.state.soundcloud)
 
     return (
       <main className={styles.main}>
