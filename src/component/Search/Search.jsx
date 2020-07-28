@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import styles from "./Search.module.scss";
+import '../../data/fa-library';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Search extends Component {
 
@@ -7,6 +10,7 @@ class Search extends Component {
     return (
       <nav className={styles.nav}>
         <h1>Track and DJ mix results</h1>
+        <p>Made by Edward Horsey <a href="https://github.com/edwardhorsey" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={["fab", "github"]} /></a></p>
         <div className={styles.subtitles}>
           <ol> 
             <li>Search for an electronic track</li>  
