@@ -5,10 +5,7 @@ import SoundcloudPlayer from "./SoundcloudPlayer";
 class PLayers extends Component {
 
   render() {
-
-    console.log(this.props)
     const players = this.props.data.map((linkObj, index) => <SoundcloudPlayer key={index} player={linkObj} />)
-
     return (
       <>
         {players}
