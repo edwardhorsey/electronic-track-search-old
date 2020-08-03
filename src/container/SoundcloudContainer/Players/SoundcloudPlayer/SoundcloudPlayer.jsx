@@ -5,7 +5,6 @@ import ReactPlayer from "react-player";
 class SoundcloudPlayer extends Component {
 
   render() {
-
     return (
       <div className={styles.soundcloudplayer}>
         <p>{this.props.player.title}</p>

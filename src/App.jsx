@@ -39,7 +39,6 @@ class App extends Component {
     .catch(error => console.log(error));
   }
 
-
   get discogsData() {
     return this.state.discogs;
   }
