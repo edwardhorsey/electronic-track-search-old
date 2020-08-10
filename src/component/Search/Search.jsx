@@ -11,7 +11,6 @@ class Search extends Component {
       <nav className={styles.nav}>
         <h1>Track and DJ mix results</h1>
         <p>Made by Edward Horsey <a href="https://github.com/edwardhorsey" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={["fab", "github"]} /></a></p>
-        <p>Disclaimer: If your first search takes longer than 15 seconds, please click again</p>
         <div className={styles.subtitles}>
           <ol> 
             <li>Search for an electronic track</li>  
